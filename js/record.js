@@ -8,19 +8,24 @@ function main () {
 		//don't reload page
 		e.preventDefault();
 		console.log("this is here");
-
-		var res = document.getElementById('resource');
-		var top = document.getElementById('topic');
-		var nm = document.getElementById('name');
+		var formEls = f.elements;
+		var recFields = {
+			res: formEls[0],
+			topic: formEls[1],
+			name: formEls[2],
+			pos: formEls[3],
+			why: formEls[4],
+			sub: formEls[5]
+		};
 
 		var t = document.getElementById('collection');
 		console.log("this is here");
-		var formEls = f.elements;
+		
 		var row = document.createElement('tr');
-		for (var i = 0, el; el = formEls[i]; i++) {
+		for(p in recFields) {
 			var cell = document.createElement('td');
-			if(el.value !== "Submit") {
-				cell.innerHTML = el.value;
+			if(recFields[p].value !== "Submit") {
+				cell.innerHTML = recFields[p].value;
 			}
 			else{
 				cell.innerHTML = dating();
@@ -28,19 +33,18 @@ function main () {
 			
 			row.appendChild(cell);
 		}
+		//add recommendation to table client-side
 		t.appendChild(row);
+		//add recommendation to database
+		putRecs(e, recFields);
 	}
 
-	//putting recommendations into database
-	function putRecs(e) {
-		var data = {
-
-		};
-
+	//to add recommendations into database
+	function putRecs(e, recfields) {
 		$.ajax({
 			type: 'GET',
 			url: '../recToData.php',
-			data: data,
+			data: recfields,
 			success: function(response) {
 				console.log(response);
 			}

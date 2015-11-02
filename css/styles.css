@@ -1,0 +1,10 @@
+input, label {
+	display: block;
+}
+.inline {
+	display: inline-block;
+}
+td, th {
+	max-width: 300px;
+	min-width: 100px;
+}

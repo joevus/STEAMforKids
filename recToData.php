@@ -11,12 +11,17 @@ else
     ini_set('display_errors', 'Off');
     error_reporting(0);
 }
-$con=mysqli_connect("localhost","theclimb_main","XttLgZPvTQk4","theclimb_STEAMcollection");
+$con=mysqli_connect("localhost","theclimb_main","XttLgZPvTQk4","theclimb_steamcollection");
 	if (mysqli_connect_errno())
 	{
 		echo "Failed to connect to MySQL: " . mysqli_connect_error();
 	}
-$id = $_GET['id'];
-$query = "UPDATE sitetable SET clicks = clicks+1 WHERE site_id='$id'";
+$res = $_GET['res'];
+$topic = $_GET['topic'];
+$name = $_GET['name'];
+$pos = $_GET['pos'];
+$why = $_GET['why'];
+$query = "INSERT INTO recs (res, topic, name, pos, why)
+	VALUES ('$res', '$topic', '$name', '$pos', '$why')";
 mysqli_query($con,$query);
 ?>
