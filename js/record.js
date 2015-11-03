@@ -3,52 +3,56 @@ function main () {
 	var f = document.getElementById('f');
 	f.addEventListener('submit', getRecs, false);
 
-	//get and post recommendation data into table when user clicks submit
+	//when user clicks submit
+	//get recommendation data from form, post to page, then database
 	function getRecs(e) {
 		//don't reload page
 		e.preventDefault();
 		console.log("this is here");
 		var formEls = f.elements;
 		var recFields = {
-			res: formEls[0],
-			topic: formEls[1],
-			name: formEls[2],
-			pos: formEls[3],
-			why: formEls[4],
-			sub: formEls[5]
+			res: formEls[0].value,
+			topic: formEls[1].value,
+			name: formEls[2].value,
+			pos: formEls[3].value,
+			why: formEls[4].value,
+			sub: formEls[5].value
 		};
 
 		var t = document.getElementById('collection');
-		console.log("this is here");
 		
 		var row = document.createElement('tr');
 		for(p in recFields) {
 			var cell = document.createElement('td');
 			if(recFields[p].value !== "Submit") {
-				cell.innerHTML = recFields[p].value;
+				cell.innerHTML = recFields[p];
 			}
 			else{
 				cell.innerHTML = dating();
 			}
-			
+			console.log("in the loop");
 			row.appendChild(cell);
 		}
 		//add recommendation to table client-side
 		t.appendChild(row);
 		//add recommendation to database
-		putRecs(e, recFields);
+		putRecs(recFields);
 	}
 
 	//to add recommendations into database
-	function putRecs(e, recfields) {
+	function putRecs(recfields) {
+		console.log("start of putRecs function");
 		$.ajax({
-			type: 'GET',
-			url: '../recToData.php',
+			type: 'POST',
+			url: 'http://theclimbingtree.net/STEAMforKids/recToData.php',
 			data: recfields,
+			datatype: 'json',
 			success: function(response) {
 				console.log(response);
-			}
+			},
+			error:function(exception){alert('Exeption:'+exception);}
 		});
+		console.log("end of putRecs")
 	}
 
 	//formating dates
