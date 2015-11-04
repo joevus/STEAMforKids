@@ -11,54 +11,60 @@
 	<script src="js/record.js"></script>
 </head>
 <body>
-	<div class="front">
+	<div id="main">
+	<div class="header">
+		<img class='banner' src='img/shareknow.jpg'>
+		<h1 class="title">Share your knowledge</h>
+	</div><!--end header-->
+	<div class="intro">
 		<p>Hi! There are lots of resources to help teach kids but it takes a lot of time to research them. Help me gather a list of them so we can discover some of the best ones out there.</p>
 		<p>*Disclaimer* Although any one can access this list, I plan to use the resources here, curate them, and put them on another website I'm making, possibly making a profit. I feel that other website will also help those who use it. If you have questions, contact me at joehoskisson 'at' gmail 'dot' com.</p>
-
 	</div>
-	<form id=f action="#">
-		<div class="inline">
-	        <label for="resource">Resource</label>
-	        <input type="text" id="resource" />
-	    </div>
-	    <div class="inline">
-	        <label for="topic">Topic</label>
-	        <select name="topic">
-	        	<option value="science">Science</option>
-	        	<option value="technology">Technology</option>
-	        	<option value="engineering">Engineering</option>
-	        	<option value="art">Art</option>
-	        	<option value="math">Math</option>
-	        	<option value="combination">Combination</option>
-	        </select>
-	    </div>
-	    <div class="inline">
-	        <label for="name">Name *Optional*</label>
-	        <input type="text" id="name" />
-	    </div>
-	    <div class="inline">
-	        <label for="position">Position *Optional*</label>
-	        <input type="text" id="position" />
-	    </div>
-	    <div class="inline">
-	        <label for="recommend">Why you recommend this resource</label>
-	        <textarea id="recommend" />1-2 sentences on why you recommend this.</textarea>
-	    </div>
-	    <div class="inline">
-		    <input type="submit" id="submit" value="Submit" />
-		</div>
-	</form>
-	<br />
-	<!--Table for viewing recommend resources -->
-	<table id="collection">
-		<tr>
-			<th>Resource</th>
-			<th>Topic</th>
-			<th>Name</th>
-			<th>Position</th>
-			<th>Recommendation</th>
-			<th>Date</th>
-		</tr>
+	
+		<form id=f action="#">
+			<div class="inline">
+		        <label for="resource">Resource</label>
+		        <input type="text" id="resource" />
+		    </div>
+		    <div class="inline">
+		        <label for="topic">Topic</label>
+		        <select name="topic">
+		        	<option value="science">Science</option>
+		        	<option value="technology">Technology</option>
+		        	<option value="engineering">Engineering</option>
+		        	<option value="art">Art</option>
+		        	<option value="math">Math</option>
+		        	<option value="combination">Combination</option>
+		        </select>
+		    </div>
+		    <div class="inline">
+		        <label for="name">Name *Optional*</label>
+		        <input type="text" id="name" />
+		    </div>
+		    <div class="inline">
+		        <label for="position">Position *Optional*</label>
+		        <input type="text" id="position" />
+		    </div>
+		    <div class="inline">
+		        <label for="recommend">Why you recommend this resource</label>
+		        <textarea id="recommend" />1-2 sentences on why you recommend this.</textarea>
+		    </div>
+		    <div class="inline">
+			    <input type="submit" id="submit" value="Submit" />
+			</div>
+		</form>
+		<br />
+		<!--Table for viewing recommend resources -->
+		<table id="collection">
+			<tr>
+				<th>Resource</th>
+				<th>Topic</th>
+				<th>Name</th>
+				<th>Position</th>
+				<th>Recommendation</th>
+				<th>Date</th>
+			</tr>
+	</div><!--end main-->
 </body>
 </html>
 
