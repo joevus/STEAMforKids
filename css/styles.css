@@ -7,9 +7,8 @@ body {
 .title {
 	position: absolute;
 	text-align: center;
-	min-width: 500px;
+	max-width: 400px;
 	top: 40px;
-	margin: auto;
 	left: 0; right: 0;
 	font-size: 4em;
 	font-weight: normal;
@@ -17,19 +16,27 @@ body {
 	color: white;
 	z-index: 1;
 }
+.topwrap {
+	min-width: 800px;
+	max-width: 800px;
+	position: relative;
+	margin: auto;
+}
 .header {
 	background-color: #809878;
-	height: 350px;
-	min-width: 600px;
+	height: 300px;
+	position: relative;
 }
 .banner {
 	position: absolute;
 	width: 436px;
     height: 300px;
-    left: 0; right: 0;
-    margin: auto;
-    top: 0px;
-    opacity: .8;
+    left: 400px; right: 0;
+    top: -40px;
+    /*opacity: .8;*/
+}
+.bottomwrap {
+	margin-left:40px; margin-right:40px;
 }
 .intro {
 	margin: 30px;
