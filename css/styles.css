@@ -38,8 +38,9 @@ body {
 .bottomwrap {
 	font-family: 'Open Sans', sans-serif;
 	position:relative;
-	margin-left: auto;
-	margin-right: auto;
+	/*margin-left: auto;
+	margin-right: auto;*/
+	margin: auto;
 	padding-left:40px; padding-right:40px;
 }
 .intro {
@@ -73,14 +74,118 @@ body {
 }
 form {
 	clear: both;
+	margin-top: 275px;
+	margin-left: auto; margin-right: auto;
+	/*text-align: center;*/
+	width:600px;
 }
-input, label {
-	display: block;
+form, form input, form label, form div, form select, form textarea {
+	box-sizing: border-box;
+}
+
+/*class ns stands for "not submit"--not the submit button*/
+form input.ns, form textarea, form select {
+	width:100%;
+	border: none;
+	outline: none;
+	padding-left: 5px;
+	background-color: #E5E5E5;
+}
+form input.ns, form label /*form option,*/ {
+	line-height: 27px;
+	height: 27px;
+	/*display: inline-block;*/
+}
+form textarea {
+	height: 78px;
+	/*padding-bottom: 0;*/
+}
+form label {
+	color: #555555;
+	font-size:13px;
+	font-weight: bold;
+	padding-left:10px;
+}
+form select {
+	padding-left: 10px;
+	height: 29px;
+	line-height: 29px;
 }
 .inline {
 	display: inline-block;
+	border: 1px solid #909090;
+	border-radius: 3px;
+	margin: 2px;
+}
+div.col-nam.inline {
+	border: none;
+	margin: none;
+}
+.row {
+	border: 1px solid #909090;
+	border-radius: 3px;
+	margin-top: 2px; margin-bottom: 2px; margin-right: 2px;
+	display: inline-block;
+	width: 100%;
+}
+.col-top {
+	width: 31%;
+}
+.col-res {
+	width: 66%;
+}
+.col-nam {
+	width: 38%;
+}
+.col-rec {
+	width: 59%;
+}
+#submit{
+	display: block;
+	cursor: pointer;
+	margin-left: auto; margin-right: auto;
+	margin-top:5px;
+	width: 260px;
+	height: 30px;
+}
+table{
+	margin-top: 60px; margin-bottom: 60px;
+	margin-left: auto; margin-right: auto;
+	/*border-color: black;*/
+	border-collapse: separate;
+	border-spacing: 0;
+	/*border-top-left-radius: 3px;*/
+}
+/*table,*/ th, td {
+	border: 1px solid black;
+	border-style: none solid solid none;
 }
 td, th {
 	max-width: 300px;
 	min-width: 100px;
+}
+tr:first-child{
+	/*colors in gradient from uigradients.com/#Parklife */
+	/*background: linear-gradient(0deg, #7B920A, #ADD100);*/
+	background: linear-gradient(0deg, #7474BF, #348AC7);
+	color: white;
+	border-radius: 5px;
+}
+th {
+	font-weight: normal;
+	font-size: 1.1em;
+	padding: 7px;
+}
+th:first-child {
+	border-top-left-radius: 10px;
+}
+th:last-child {
+	border-top-right-radius: 3px;
+}
+tr:last-child td:first-child {
+	border-radius: 10px;
+	/*border-bottom-left-radius: 10px;*/
+}
+tr:nth-child(2n){
+	background-color: gray;
 }

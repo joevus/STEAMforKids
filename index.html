@@ -37,35 +37,38 @@
 			</div><!--end intro-->
 		
 			<form id=f action="#">
-				<div class="inline">
+				<div class="inline col-res">
 			        <label for="resource">Resource</label>
-			        <input type="text" id="resource" />
+			        <input class="ns" placeholder="A link to a website or name of other resource." type="text" id="resource" />
+			        
 			    </div>
-			    <div class="inline">
-			        <label for="topic">Topic</label>
-			        <select name="topic">
-			        	<option value="science">Science</option>
-			        	<option value="technology">Technology</option>
-			        	<option value="engineering">Engineering</option>
-			        	<option value="art">Art</option>
-			        	<option value="math">Math</option>
-			        	<option value="combination">Combination</option>
+			    <div class="inline col-top">
+			    	<label for="topic">Topic</label>
+				    <select name="topic">
+				        	<option value="science">Science</option>
+				        	<option value="technology">Technology</option>
+				        	<option value="engineering">Engineering</option>
+				        	<option value="art">Art</option>
+				        	<option value="math">Math</option>
+				        	<option value="combination">Combination</option>
 			        </select>
 			    </div>
-			    <div class="inline">
-			        <label for="name">Name *Optional*</label>
-			        <input type="text" id="name" />
+			    <div class="inline col-nam">
+			    	<div class="row">
+				        <label for="name">Name</label>
+				        <input class="ns" placeholder="your name *optional*" type="text" id="name" />
+				    </div>
+				    <div class="row">
+			    	    <label for="position">Position</label>
+				        <input class="ns" placeholder="your position *optional*" type="text" id="position" />
+				    </div>
 			    </div>
-			    <div class="inline">
-			        <label for="position">Position *Optional*</label>
-			        <input type="text" id="position" />
-			    </div>
-			    <div class="inline">
+			    <div class="inline col-rec">
 			        <label for="recommend">Why you recommend this resource</label>
-			        <textarea id="recommend" />1-2 sentences on why you recommend this.</textarea>
+			        <textarea placeholder="1-2 sentences on why you recommend this." id="recommend" /></textarea>
 			    </div>
-			    <div class="inline">
-				    <input type="submit" id="submit" value="Submit" />
+			    <div>
+				    <input type="submit" id="submit" value="Submit Resource" />
 				</div>
 			</form>
 			<br />
@@ -79,13 +82,24 @@
 					<th>Recommendation</th>
 					<th>Date</th>
 				</tr>
+				<tr>
+					<td>hi hello hello hello hello</td>
+					<td>hi hello</td>
+					<td>hi hello</td>
+					<td>hi hello</td>
+					<td>hi hi hi hi hi hi hi ehllo helol hello hello hello ehllo ehllol hello hello hello hello hello hello hello hello.</td>
+					<td>hi hello hi</td>
+				</tr>
+				<tr>
+					<td>hi hello hello hello hello</td>
+					<td>hi hello</td>
+					<td>hi hello</td>
+					<td>hi hello</td>
+					<td>hi hi hi hi hi hi hi ehllo helol hello hello hello ehllo ehllol hello hello hello hello hello hello hello hello.</td>
+					<td>hi hello hi</td>
+				</tr>
 			</table>
 		</div><!--end bottomwrap-->
 	</div><!--end main-->
 </body>
 </html>
-
-<!--
-img source: https://commons.wikimedia.org/w/index.php?title=Special:Search&limit=20&offset=20&profile=default&search=tree+branch
-
--->
