@@ -154,6 +154,8 @@ table{
 	/*border-color: black;*/
 	border-collapse: separate;
 	border-spacing: 0;
+	/*border-left: 1px solid black;*/
+/*	border-top: 1px solid black;*/
 	/*border-top-left-radius: 3px;*/
 }
 /*table,*/ th, td {
@@ -164,27 +166,38 @@ td, th {
 	max-width: 300px;
 	min-width: 100px;
 }
-tr:first-child{
+td:first-child {
+	border-left: 1px solid black;
+}
+tr:first-child td{
 	/*colors in gradient from uigradients.com/#Parklife */
 	/*background: linear-gradient(0deg, #7B920A, #ADD100);*/
-	background: linear-gradient(0deg, #7474BF, #348AC7);
-	color: white;
-	border-radius: 5px;
+	/*background: linear-gradient(0deg, #7474BF, #348AC7);*/
+	background-color: blue;
+	color: black;
+	/*border-radius: 5px;*/
 }
 th {
 	font-weight: normal;
 	font-size: 1.1em;
 	padding: 7px;
 }
-th:first-child {
+tr:first-child td:first-child {
 	border-top-left-radius: 10px;
 }
-th:last-child {
-	border-top-right-radius: 3px;
+tr:first-child td:last-child {
+	/*background-color: blue;*/
+	border-top-right-radius: 10px;
+	-webkit-background-clip: padding-box;
+	-moz-background-clip: padding;
+	background-clip: padding-box;
 }
 tr:last-child td:first-child {
-	border-radius: 10px;
-	/*border-bottom-left-radius: 10px;*/
+	/*border-radius: 10px;*/
+	border-bottom-left-radius: 10px;
+}
+tr:last-child td:last-child {
+	border-bottom-right-radius: 10px;
 }
 tr:nth-child(2n){
 	background-color: gray;
