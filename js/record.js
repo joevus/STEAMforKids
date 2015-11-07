@@ -3,6 +3,8 @@ function main () {
 	var f = document.getElementById('f');
 	f.addEventListener('submit', getRecs, false);
 
+	//******Test out getDataRecs *******
+	getDataRecs();
 	//when user clicks submit
 	//get recommendation data from form, post to page, then database
 	function getRecs(e) {
@@ -53,7 +55,7 @@ function main () {
 		console.log("start of putRecs function");
 		$.ajax({
 			type: 'POST',
-			url: 'http://theclimbingtree.net/STEAMforKids/recToData.php',
+			url: 'http://theclimbingtree.net/steamforkids/recToData.php',
 			data: recfields,
 			datatype: 'json',
 			success: function(response) {
@@ -62,6 +64,19 @@ function main () {
 			error:function(exception){alert('Exception:'+exception);}
 		});
 		console.log("end of putRecs")
+	}
+
+	//pull recommendations from database
+	function getDataRecs() {
+		$.ajax({
+			type: 'GET',
+			url: 'http://theclimbingtree.net/steamforkids/recFromData.php',
+			success: function(data) {
+				var result = $.parseJSON(data);
+				alert("res: " + result[0] + ", topic: " + result[1]);
+			},
+			error:function(exception){alert('Exception:'+exception);}
+		});
 	}
 
 	//formating dates
