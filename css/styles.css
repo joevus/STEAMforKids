@@ -154,7 +154,7 @@ div.col-nam.inline {
 table{
 	margin-top: 60px; margin-bottom: 60px;
 	margin-left: auto; margin-right: auto;
-	width: 900px;
+	width: 950px;
 	/*border-color: black;*/
 	border-collapse: separate;
 	border-spacing: 0;
@@ -173,6 +173,13 @@ td {
 	padding: 6px;
 	overflow: auto;
 }
+td.container { height: 50px;}
+td.container > div {
+	width: 100%;
+	max-height: 120px;
+	overflow: hidden;
+}
+
 td:first-child {
 	border-left: 1px solid black;
 	width: 260px;
@@ -214,9 +221,14 @@ tr:first-child td{
 
 tr:first-child td:first-child {
 	border-top-left-radius: 10px;
+	-webkit-background-clip: padding-box;
+	-moz-background-clip: padding;
+	background-clip: padding-box;
 }
 tr:first-child td:last-child {
 	/*background-color: blue;*/
+	/*prevent background color 'bleeding' through rounded corners*/
+	/*may need to add to other selectors of table cells on corners*/
 	border-top-right-radius: 10px;
 	-webkit-background-clip: padding-box;
 	-moz-background-clip: padding;
@@ -225,15 +237,21 @@ tr:first-child td:last-child {
 tr:last-child td:first-child {
 	/*border-radius: 10px;*/
 	border-bottom-left-radius: 10px;
+	-webkit-background-clip: padding-box;
+	-moz-background-clip: padding;
+	background-clip: padding-box;
 }
 tr:last-child td:last-child {
 	border-bottom-right-radius: 10px;
+	-webkit-background-clip: padding-box;
+	-moz-background-clip: padding;
+	background-clip: padding-box;
 }
-tr:nth-child(2n){
+tr:nth-child(2n) td{
 	background-color: #F6FFEE;
 	/*#E4F6D3*/
 }
-tr:nth-child(2n+1){
+tr:nth-child(2n+1) td{
 	background-color: #B9C3CA;
 	/*#b2b2b2*/
 }
