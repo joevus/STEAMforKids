@@ -234,14 +234,26 @@ tr:first-child td:last-child {
 	-moz-background-clip: padding;
 	background-clip: padding-box;
 }
-tr:last-child td:first-child {
-	/*border-radius: 10px;*/
+/*changing this to scripting class so appended rows are rounded*/
+/*tr:last-child td:first-child {
 	border-bottom-left-radius: 10px;
 	-webkit-background-clip: padding-box;
 	-moz-background-clip: padding;
 	background-clip: padding-box;
 }
 tr:last-child td:last-child {
+	border-bottom-right-radius: 10px;
+	-webkit-background-clip: padding-box;
+	-moz-background-clip: padding;
+	background-clip: padding-box;
+}*/
+.bottomleft {
+	border-bottom-left-radius: 10px;
+	-webkit-background-clip: padding-box;
+	-moz-background-clip: padding;
+	background-clip: padding-box;
+}
+.bottomright {
 	border-bottom-right-radius: 10px;
 	-webkit-background-clip: padding-box;
 	-moz-background-clip: padding;

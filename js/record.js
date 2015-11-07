@@ -19,7 +19,7 @@ function main () {
 			sub: formEls[5].value
 		};
 
-		var t = document.getElementById('collection');
+		var ctbody = document.getElementById('coltbody');
 		
 		var row = document.createElement('tr');
 		for(p in recFields) {
@@ -33,8 +33,17 @@ function main () {
 			console.log("in the loop");
 			row.appendChild(cell);
 		}
+		//add rounded corners classes to last row
+		$("tr:last-child td:first-child").addClass("bottomleft");
+		$("tr:last-child td:last-child").addClass("bottomright");
 		//add recommendation to table client-side
-		t.appendChild(row);
+		ctbody.appendChild(row);
+		//remove rounded corners classes. this could be more specific?
+		$("tr td").removeClass("bottomleft");
+		$("tr td").removeClass("bottomright");
+		//add rounded corners classes to last row
+		$("tr:last-child td:first-child").addClass("bottomleft");
+		$("tr:last-child td:last-child").addClass("bottomright");
 		//add recommendation to database
 		putRecs(recFields);
 	}
@@ -50,7 +59,7 @@ function main () {
 			success: function(response) {
 				console.log(response);
 			},
-			error:function(exception){alert('Exeption:'+exception);}
+			error:function(exception){alert('Exception:'+exception);}
 		});
 		console.log("end of putRecs")
 	}
