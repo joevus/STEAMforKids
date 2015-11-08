@@ -59,7 +59,7 @@ function main () {
 			data: recfields,
 			datatype: 'json',
 			success: function(response) {
-				console.log(response);
+				console.log("success response: " + response);
 			},
 			error:function(exception){alert('Exception:'+exception);}
 		});
@@ -70,10 +70,13 @@ function main () {
 	function getDataRecs() {
 		$.ajax({
 			type: 'GET',
-			url: 'http://theclimbingtree.net/steamforkids/recFromData.php',
+			url: '/steamforkids/recFromData.php',
 			success: function(data) {
 				var result = $.parseJSON(data);
-				alert("res: " + result[0] + ", topic: " + result[1]);
+				//alert("res: " + result[0] + ", topic: " + result[1]);
+				var res = $.parseJSON(result[0]);
+				alert(res);
+				alert(result);
 			},
 			error:function(exception){alert('Exception:'+exception);}
 		});
