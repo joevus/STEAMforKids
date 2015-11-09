@@ -2,63 +2,45 @@ function main () {
 	//add event listener to recommendations form
 	var f = document.getElementById('f');
 	f.addEventListener('submit', getRecs, false);
-
-	//******Test out getDataRecs *******
-	var recObj = {};
+	
+	//To start, load data from database and put into collection table.
 	getDataRecs();
+	var recObj = {};
+	//******Test out getDataRecs *******
+	// //delay alert to see if problem is that have to wait for ajax to complete
+	// var timeoutID;
+	// function delayedAlert() {
+	// 	timeoutID = window.setTimeout(slowAlert, 1000);
+	// }
+	// function slowAlert() {
+	// 	alert(" are you getting this? this is from the return of the sucess funtion: " + recObj.res);
+	// }
+	// delayedAlert();
+	// *******End of testing getDataRecs*********
 
-	//delay alert to see if problem is that have to wait for ajax to complete
-	var timeoutID;
-	function delayedAlert() {
-		timeoutID = window.setTimeout(slowAlert, 1000);
-	}
-	function slowAlert() {
-		alert(" are you getting this? this is from the return of the sucess funtion: " + recObj.res);
-	}
-	delayedAlert();
 	//when user clicks submit
-	//get recommendation data from form, post to page, then database
+	//get recommendation data from form, post to database. In AJAX callback, update table.
 	function getRecs(e) {
 		//don't reload page
 		e.preventDefault();
 		console.log("this is here");
 		var formEls = f.elements;
+		var dated = dating();
 		var recFields = {
 			res: formEls[0].value,
 			topic: formEls[1].value,
 			name: formEls[2].value,
 			pos: formEls[3].value,
 			why: formEls[4].value,
-			sub: formEls[5].value
+			sub: dated
 		};
-
-		var ctbody = document.getElementById('coltbody');
 		
-		var row = document.createElement('tr');
-		for(p in recFields) {
-			var cell = document.createElement('td');
-			if(recFields[p].value !== "Submit") {
-				cell.innerHTML = recFields[p];
-			}
-			else{
-				cell.innerHTML = dating();
-			}
-			console.log("in the loop");
-			row.appendChild(cell);
-		}
-		//add rounded corners classes to last row
-		$("tr:last-child td:first-child").addClass("bottomleft");
-		$("tr:last-child td:last-child").addClass("bottomright");
-		//add recommendation to table client-side
-		ctbody.appendChild(row);
-		//remove rounded corners classes. this could be more specific?
-		$("tr td").removeClass("bottomleft");
-		$("tr td").removeClass("bottomright");
-		//add rounded corners classes to last row
-		$("tr:last-child td:first-child").addClass("bottomleft");
-		$("tr:last-child td:last-child").addClass("bottomright");
-		//add recommendation to database
+		//add recommendation to database. can I pull from database and update table all in one
+		//AJAX POST or GET? Right now it's one POST with putRecs() and one GET with getDataRecs().
 		putRecs(recFields);
+
+		//get data from database and update table
+		getDataRecs();
 	}
 
 	//to add recommendations into database
