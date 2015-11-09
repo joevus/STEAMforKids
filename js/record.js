@@ -4,7 +4,18 @@ function main () {
 	f.addEventListener('submit', getRecs, false);
 
 	//******Test out getDataRecs *******
+	var recObj = {};
 	getDataRecs();
+
+	//delay alert to see if problem is that have to wait for ajax to complete
+	var timeoutID;
+	function delayedAlert() {
+		timeoutID = window.setTimeout(slowAlert, 1000);
+	}
+	function slowAlert() {
+		alert(" are you getting this? this is from the return of the sucess funtion: " + recObj.res);
+	}
+	delayedAlert();
 	//when user clicks submit
 	//get recommendation data from form, post to page, then database
 	function getRecs(e) {
@@ -74,12 +85,28 @@ function main () {
 			success: function(data) {
 				var result = $.parseJSON(data);
 				//alert("res: " + result[0] + ", topic: " + result[1]);
-				var res = $.parseJSON(result[0]);
-				alert(res);
-				alert(result);
+				//store data in recObj which has a main-function scope
+				recObj.res = $.parseJSON(result[0]);
+				recObj['topic'] = $.parseJSON(result[1]);
+				recObj['name'] = $.parseJSON(result[2]);
+				recObj['pos'] = $.parseJSON(result[3]);
+				recObj['why'] = $.parseJSON(result[4]);
+				recObj.hi = "hello";
+
+				//tests for how data comes out
+				// alert(recObj.res);
+				// var res = $.parseJSON(result[0]);
+				// alert(res);
+				// alert(result);
 			},
 			error:function(exception){alert('Exception:'+exception);}
 		});
+	}
+
+	//Use data to update Recommendations Table. Can be data from submit form or from database.
+	//Takes an object as a parameter with res,topic,name,pos,why properties.
+	function updateRecTable (storedRecs){
+
 	}
 
 	//formating dates
