@@ -147,11 +147,11 @@ function main () {
 		new_tbody.id = "coltbody";
 		
 		//remove rounded corners classes. this could be more specific?
-		$("tr td").removeClass("bottomleft");
-		$("tr td").removeClass("bottomright");
+		$("tbody tr td").removeClass("bottomleft");
+		$("tbody tr td").removeClass("bottomright");
 		//add rounded corners classes to last row
-		$("tr:last-child td:first-child").addClass("bottomleft");
-		$("tr:last-child td:last-child").addClass("bottomright");
+		$("tbody tr:last-child td:first-child").addClass("bottomleft");
+		$("tbody tr:last-child td:last-child").addClass("bottomright");
 	}
 
 	//formating dates

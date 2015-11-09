@@ -203,7 +203,7 @@ td:nth-child(6) {
 	width: 70px;
 	max-width: 90px;
 }
-tr:first-child td{
+thead td{
 	/*colors in gradient from uigradients.com/#Parklife */
 	/*background: linear-gradient(0deg, #7B920A, #ADD100);*/
 	/*colors in gradient from http://www.csstablegenerator.com/*/
@@ -219,13 +219,13 @@ tr:first-child td{
 	/*border-radius: 5px;*/
 }
 
-tr:first-child td:first-child {
+thead td:first-child {
 	border-top-left-radius: 10px;
 	-webkit-background-clip: padding-box;
 	-moz-background-clip: padding;
 	background-clip: padding-box;
 }
-tr:first-child td:last-child {
+thead td:last-child {
 	/*background-color: blue;*/
 	/*prevent background color 'bleeding' through rounded corners*/
 	/*may need to add to other selectors of table cells on corners*/
