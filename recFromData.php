@@ -25,7 +25,7 @@ $con=mysqli_connect("localhost","theclimb_main","XttLgZPvTQk4","theclimb_steamco
 
 //checking to see if it's my data object
 
-$query = "SELECT res, topic, name, pos, why
+$query = "SELECT res, topic, name, pos, why, dates
 	FROM recs";
 
 //$query ="INSERT INTO recs (res, topic, name, pos, why) VALUES ('horse', 'horse', 'horse', 'horse', 'horse')";
@@ -37,6 +37,7 @@ while($row = mysqli_fetch_array($result)) {
 	$name[$i] = $row['name'];
 	$pos[$i] = $row['pos'];
 	$why[$i] = $row['why'];
+	$dates[$i] = $row['dates'];
 	++$i;
 
 }
@@ -45,7 +46,8 @@ $topicj = json_encode($topic);
 $namej = json_encode($name);
 $posj = json_encode($pos);
 $whyj = json_encode($why);
+$datesj = json_encode($dates);
 
-echo json_encode(array($resj,$topicj,$namej,$posj,$whyj));
+echo json_encode(array($resj,$topicj,$namej,$posj,$whyj,$datesj));
 
 ?>

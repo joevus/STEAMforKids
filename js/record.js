@@ -92,7 +92,20 @@ function main () {
 				recObj['pos'] = $.parseJSON(result[3]);
 				recObj['why'] = $.parseJSON(result[4]);
 				recObj.hi = "hello";
+				
+				//array with data results
+				//0: res, 1: topic, 2: name, 3: pos, 4: why, 5: dates
+				var recArr = [];
+				recArr[0] = $.parseJSON(result[0]);
+				recArr[1] = $.parseJSON(result[1]);
+				recArr[2] = $.parseJSON(result[2]);
+				recArr[3] = $.parseJSON(result[3]);
+				recArr[4] = $.parseJSON(result[4]);
+				recArr[5] = $.parseJSON(result[5]);
 
+				console.log("got into success of getDataRecs");
+				//update client-side table with recArr
+				updateRecTable(recArr);
 				//tests for how data comes out
 				// alert(recObj.res);
 				// var res = $.parseJSON(result[0]);
@@ -104,9 +117,41 @@ function main () {
 	}
 
 	//Use data to update Recommendations Table. Can be data from submit form or from database.
-	//Takes an object as a parameter with res,topic,name,pos,why properties.
-	function updateRecTable (storedRecs){
+	//Takes an array as a parameter with order of values:
+	// 0: res, 1: topic, 2: name, 3: pos, 4: why, 5: date.
+	function updateRecTable (recs){
+		console.log("in updateRecTable function");
+		//create new table body
+		var new_tbody = document.createElement('tbody');
+		//assign old table body to variable
+		var old_tbody = document.getElementById('coltbody');
+		
+		//create a row for every entry in the res (rescources) column
+		for(var i = 0; i < recs[0].length; i++) {
+			console.log(recs.length);
+			var row = document.createElement('tr');
+			//iterate through all columns on row i adding cells to table
+			for(var j = 0; j < recs.length; j++) {
+				var cell = document.createElement('td');
+				cell.innerHTML = recs[j][i];
 
+				console.log("in the loop");
+				row.appendChild(cell);
+			}
+			//add recommendation to table client-side
+			new_tbody.appendChild(row);
+		}
+		//replace old table body with new
+		old_tbody.parentNode.replaceChild(new_tbody, old_tbody);
+		//give new_tbody same id as old_tbody used to have. coltbody stands for collection tbody
+		new_tbody.id = "coltbody";
+		
+		//remove rounded corners classes. this could be more specific?
+		$("tr td").removeClass("bottomleft");
+		$("tr td").removeClass("bottomright");
+		//add rounded corners classes to last row
+		$("tr:last-child td:first-child").addClass("bottomleft");
+		$("tr:last-child td:last-child").addClass("bottomright");
 	}
 
 	//formating dates
