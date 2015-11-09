@@ -35,12 +35,10 @@ function main () {
 			sub: dated
 		};
 		
-		//add recommendation to database. can I pull from database and update table all in one
+		//add recommendation to database. After done, callback pulls data from database, refeshes
+		//table. Can I pull from database and update table all in one
 		//AJAX POST or GET? Right now it's one POST with putRecs() and one GET with getDataRecs().
 		putRecs(recFields);
-
-		//get data from database and update table
-		getDataRecs();
 	}
 
 	//to add recommendations into database
@@ -53,6 +51,8 @@ function main () {
 			datatype: 'json',
 			success: function(response) {
 				console.log("success response: " + response);
+				//after POST to database, GET from database and update table
+				getDataRecs();
 			},
 			error:function(exception){alert('Exception:'+exception);}
 		});
