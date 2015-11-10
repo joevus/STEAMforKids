@@ -40,8 +40,9 @@ body {
 	position:relative;
 	/*margin-left: auto;
 	margin-right: auto;*/
-	margin: auto;
-	padding-left:40px; padding-right:40px;
+	/*margin: auto;*/
+	margin-left: 10px; margin-right: 10px;
+	/*padding-left:40px; padding-right:40px;*/
 }
 .intro {
 	margin: 30px;
