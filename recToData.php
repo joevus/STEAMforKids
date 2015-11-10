@@ -24,11 +24,12 @@ $topic = $_POST['topic'];
 $name = $_POST['name'];
 $pos = $_POST['pos'];
 $why = $_POST['why'];
+$dates = $_POST['dates'];
 
 //checking to see if it's my data object
 
-$query = "INSERT INTO recs (res, topic, name, pos, why) 
-	VALUES ('$res', '$topic', '$name', '$pos', '$why')";
+$query = "INSERT INTO recs (res, topic, name, pos, why, dates) 
+	VALUES ('$res', '$topic', '$name', '$pos', '$why', '$dates')";
 
 //$query ="INSERT INTO recs (res, topic, name, pos, why) VALUES ('horse', 'horse', 'horse', 'horse', 'horse')";
 mysqli_query($con,$query);

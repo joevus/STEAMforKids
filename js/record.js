@@ -32,7 +32,7 @@ function main () {
 			name: formEls[2].value,
 			pos: formEls[3].value,
 			why: formEls[4].value,
-			sub: dated
+			dates: dated
 		};
 		
 		//add recommendation to database. After done, callback pulls data from database, refeshes
