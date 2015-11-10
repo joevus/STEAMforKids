@@ -59,7 +59,7 @@ function main () {
 				//after POST to database, GET from database and update table
 				getDataRecs();
 			},
-			error:function(exception){alert('Exception-getRecs:'+exception);}
+			error:function(exception){alert('Exception-getRecs: '+exception);}
 		});
 		console.log("end of putRecs")
 	}
@@ -68,7 +68,7 @@ function main () {
 	function getDataRecs() {
 		$.ajax({
 			type: 'GET',
-			url: '/steamforkids/recFromData.php',
+			url: 'http://theclimbingtree.net/steamforkids/recFromData.php',
 			success: function(data) {
 				var result = $.parseJSON(data);
 				//alert("res: " + result[0] + ", topic: " + result[1]);
@@ -99,7 +99,7 @@ function main () {
 				// alert(res);
 				// alert(result);
 			},
-			error:function(exception){alert('Exception-getDataRecs:'+exception);}
+			error:function(exception){alert('Exception-getDataRecs: '+exception);}
 		});
 	}
 
@@ -122,7 +122,6 @@ function main () {
 				var cell = document.createElement('td');
 				cell.innerHTML = recs[j][i];
 
-				console.log("in the loop");
 				row.appendChild(cell);
 			}
 			//add recommendation to table client-side
