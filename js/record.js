@@ -1,8 +1,9 @@
 function main () {
-	//add event listener to recommendations form
+	//declare the form variable, used later
 	var f = document.getElementById('f');
-	f.addEventListener('submit', getRecs, false);
-	
+	//add event listener to submit button of recommendations form
+	var submit = document.getElementById('submit');
+	submit.addEventListener('click', getRecs, false);
 	//To start, load data from database and put into collection table.
 	getDataRecs();
 	var recObj = {};
