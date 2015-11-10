@@ -41,8 +41,9 @@ function main () {
 		//AJAX POST or GET? Right now it's one POST with putRecs() and one GET with getDataRecs().
 		putRecs(recFields);
 		//scroll to bottom of table which is called 'collection'
-		var collection =document.getElementById('collection');
-		window.scrollTo(0,collection.getBoundingClientRect().bottom);
+		$("html, body").animate({scrollTop: $('#collection').offset().top + $('#collection').outerHeight(true)}, 900);
+		// var collection =document.getElementById('collection');
+		// window.scrollTo(0,collection.getBoundingClientRect().bottom);
 	}
 
 	//to add recommendations into database
@@ -58,7 +59,7 @@ function main () {
 				//after POST to database, GET from database and update table
 				getDataRecs();
 			},
-			error:function(exception){alert('Exception:'+exception);}
+			error:function(exception){alert('Exception-getRecs:'+exception);}
 		});
 		console.log("end of putRecs")
 	}
@@ -98,7 +99,7 @@ function main () {
 				// alert(res);
 				// alert(result);
 			},
-			error:function(exception){alert('Exception:'+exception);}
+			error:function(exception){alert('Exception-getDataRecs:'+exception);}
 		});
 	}
 
