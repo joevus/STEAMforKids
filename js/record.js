@@ -40,6 +40,9 @@ function main () {
 		//table. Can I pull from database and update table all in one
 		//AJAX POST or GET? Right now it's one POST with putRecs() and one GET with getDataRecs().
 		putRecs(recFields);
+		//scroll to bottom of table which is called 'collection'
+		var collection =document.getElementById('collection');
+		window.scrollTo(0,collection.getBoundingClientRect().bottom);
 	}
 
 	//to add recommendations into database
