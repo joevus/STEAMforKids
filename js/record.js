@@ -161,7 +161,8 @@ function main () {
 		minutes = minutes < 10 ? '0'+minutes : minutes;
 		var strTime = hours + ':' + minutes + ampm;
 		//"13 Jan 2012 11:00am";
-		var dt = myDate.getDate()+" "+month[myDate.getMonth()]+" "+myDate.getFullYear()+" "+strTime;
+		// var dt = myDate.getDate()+" "+month[myDate.getMonth()]+" "+(myDate.getFullYear() - 2000) + " "+strTime;
+		var dt = (myDate.getMonth() + 1) + "/" + myDate.getDate() + "/" + myDate.getFullYear();
 		return dt;
 	}
 }
