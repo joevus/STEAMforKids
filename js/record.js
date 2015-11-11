@@ -52,12 +52,21 @@ function main () {
 		$.ajax({
 			type: 'POST',
 			url: 'http://theclimbingtree.net/steamforkids/recToData.php',
-			data: recfields,
 			datatype: 'json',
+			data: recfields,
 			success: function(response) {
-				console.log("success response: " + response);
-				//after POST to database, GET from database and update table
-				getDataRecs();
+				//update table with response from POST
+				var result = $.parseJSON(response);
+				var recArr = [];
+				recArr[0] = $.parseJSON(result[0]);
+				recArr[1] = $.parseJSON(result[1]);
+				recArr[2] = $.parseJSON(result[2]);
+				recArr[3] = $.parseJSON(result[3]);
+				recArr[4] = $.parseJSON(result[4]);
+				recArr[5] = $.parseJSON(result[5]);
+				//this does not use a GET
+				updateRecTable(recArr);
+				console.log(recArr[1]);
 			},
 			error:function(jqXHR, textStatus, errorThrown){alert('*Error-putRecs*\njqXHR: ' + jqXHR.responseText + '\ntextStatus: ' + textStatus + '\nerrorThrown: ' + errorThrown);}
 		});
@@ -100,7 +109,7 @@ function main () {
 				// alert(res);
 				// alert(result);
 			},
-			error:function(exception){alert('Exception-getDataRecs: '+exception);}
+			error:function(jqXHR, textStatus, errorThrown){alert('*Exception-getDataRecs*\njqXHR: ' + jqXHR.responseText + '\ntextStatus: ' + textStatus + '\nerrorThrown: ' + errorThrown);}
 		});
 	}
 
@@ -116,7 +125,6 @@ function main () {
 		
 		//create a row for every entry in the res (rescources) column
 		for(var i = 0; i < recs[0].length; i++) {
-			console.log(recs.length);
 			var row = document.createElement('tr');
 			//iterate through all columns on row i adding cells to table
 			for(var j = 0; j < recs.length; j++) {
