@@ -68,6 +68,7 @@ function main () {
 	function getDataRecs() {
 		$.ajax({
 			type: 'GET',
+			datatype: 'json',
 			url: 'http://theclimbingtree.net/steamforkids/recFromData.php',
 			success: function(data) {
 				var result = $.parseJSON(data);
