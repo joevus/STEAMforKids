@@ -59,7 +59,7 @@ function main () {
 				//after POST to database, GET from database and update table
 				getDataRecs();
 			},
-			error:function(exception){alert('Exception-getRecs: '+exception);}
+			error:function(jqXHR, textStatus, errorThrown){alert('*Error-putRecs*\njqXHR: ' + jqXHR.responseText + '\ntextStatus: ' + textStatus + '\nerrorThrown: ' + errorThrown);}
 		});
 		console.log("end of putRecs")
 	}
